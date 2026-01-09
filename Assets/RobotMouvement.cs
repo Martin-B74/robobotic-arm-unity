@@ -3,55 +3,32 @@ using UnityEngine.UI;
 
 public class ArmController : MonoBehaviour
 {
-    [Header("Transforms du robot")]
-    public Transform translation1;   // montée/descente
-    public Transform rotation1;      // rotation base
-    public Transform translation2;   // avance/recul
-    public Transform rotation2;      // articulation bras
-    public Transform translation3;   // extension finale
+    public Transform rotation1;     // Y
+    public Transform rotation2;     // X
+    public Transform translation1;  // Z
+    public Transform rotation3;     // X
+    public Transform translation2;  // Y
 
-    [Header("Sliders")]
-    public Slider translation1Slider;
     public Slider rotation1Slider;
-    public Slider translation2Slider;
     public Slider rotation2Slider;
-    public Slider translation3Slider;
+    public Slider translation1Slider;
+    public Slider rotation3Slider;
+    public Slider translation2Slider;
 
     void Update()
     {
-        // Translation verticale (Y)
+        rotation1.localEulerAngles = new Vector3(0, rotation1Slider.value, 0);
+        rotation2.localEulerAngles = new Vector3(rotation2Slider.value, 0, 0);
         translation1.localPosition = new Vector3(
             translation1.localPosition.x,
-            translation1Slider.value,
-            translation1.localPosition.z
+            translation1.localPosition.y,
+            translation1Slider.value
         );
-
-        // Rotation de la base (Y)
-        rotation1.localEulerAngles = new Vector3(
-            0,
-            rotation1Slider.value,
-            0
-        );
-
-        // Translation avant/arrière (Z)
+        rotation3.localEulerAngles = new Vector3(rotation3Slider.value, 0, 0);
         translation2.localPosition = new Vector3(
             translation2.localPosition.x,
-            translation2.localPosition.y,
-            translation2Slider.value
-        );
-
-        // Rotation du bras (X)
-        rotation2.localEulerAngles = new Vector3(
-            rotation2Slider.value,
-            0,
-            0
-        );
-
-        // Extension finale (Y)
-        translation3.localPosition = new Vector3(
-            translation3.localPosition.x,
-            translation3Slider.value,
-            translation3.localPosition.z
+            translation2Slider.value,
+            translation2.localPosition.z
         );
     }
 }
