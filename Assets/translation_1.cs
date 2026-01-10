@@ -1,9 +1,11 @@
-using UnityEngine;
+﻿using UnityEngine;
 
-public class translation_1 : MonoBehaviour {
-    public float q3 = 20f; 
-    private Vector3 initialPos;
+public class translation_1 : MonoBehaviour
+{
+    public float q3 = 20f;
+
     private Transform visuel;
+    private Vector3 initialPos;
 
     void Start()
     {
