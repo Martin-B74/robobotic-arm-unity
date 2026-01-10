@@ -6,6 +6,6 @@ public class pencil : MonoBehaviour
 
     void Update()
     {
-        transform.localScale = new Vector3(1f, B*2f, 1f);
+        transform.localScale = new Vector3(1f, B, 1f);
     }
 }

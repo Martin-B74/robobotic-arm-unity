@@ -12,8 +12,8 @@ public class translation_1 : MonoBehaviour {
     }
 
     void Update() {
-        transform.localPosition = initialPos + new Vector3(0, 0, q3);
-        visuel.localScale = new Vector3(visuel.localScale.x, visuel.localScale.y, q3);
-        visuel.localPosition = new Vector3(0, 0, -q3/2f);
+        transform.localPosition = initialPos + new Vector3(0, q3, 0);
+        visuel.localScale = new Vector3(visuel.localScale.x, q3, visuel.localScale.z);
+        visuel.localPosition = new Vector3(0, -q3/2f, 0);
     }
 }

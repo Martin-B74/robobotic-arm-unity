@@ -5,6 +5,6 @@ public class rotation_3 : MonoBehaviour {
     
     void Update()
     {
-        transform.localEulerAngles = new Vector3(q4, 0f, 0f);
+        transform.localEulerAngles = new Vector3(-q4, 0f, 0f);
     }
 }
