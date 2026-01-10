@@ -1,6 +1,7 @@
 using UnityEngine;
 
-public class rotation_2 : MonoBehaviour {
+public class rotation_2 : MonoBehaviour
+{
     public float q2 = 0f;
     public float A = 10f;
 

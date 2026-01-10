@@ -1,7 +1,9 @@
 using UnityEngine;
 
-public class translation_2 : MonoBehaviour {
+public class translation_2 : MonoBehaviour
+{
     public float q5 = 10f;
+
     private Vector3 initialPos;
     private Transform visuel;
     private Transform pencil;
@@ -16,8 +18,11 @@ public class translation_2 : MonoBehaviour {
     void Update()
     {
         transform.localPosition = initialPos + new Vector3(0, -q5, 0);
-        visuel.localScale = new Vector3(visuel.localScale.x, q5, visuel.localScale.z);
-        visuel.localPosition = new Vector3(0, q5/2f, 0);
+
+        float safeQ5 = Mathf.Max(q5, 10f);
+        visuel.localScale = new Vector3(visuel.localScale.x, safeQ5, visuel.localScale.z);
+        visuel.localPosition = new Vector3(0, safeQ5 / 2f, 0);
+
         pencil.localPosition = Vector3.zero;
     }
 }
