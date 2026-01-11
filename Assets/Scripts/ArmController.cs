@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class RobotController : MonoBehaviour
+public class ArmController : MonoBehaviour
 {
     public bool slider = false;
 
@@ -101,4 +101,10 @@ public class RobotController : MonoBehaviour
         scriptTrans1.q3 = q3;
         scriptRot3.q4 = q4;
     }
+    public float Q1 => scriptRot1.q1;
+    public float Q2 => scriptRot2.q2;
+    public float Q3 => scriptTrans1.q3;
+    public float Q4 => scriptRot3.q4;
+    public float Q5 => scriptTrans2.q5;
+
 }

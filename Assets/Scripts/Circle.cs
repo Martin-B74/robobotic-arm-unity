@@ -4,7 +4,7 @@
 public class CircleDrawer : MonoBehaviour
 {
     [Header("Robot")]
-    public RobotController controller;
+    public ArmController controller;
     public Transform pencil;
 
     [Header("Cercle")]

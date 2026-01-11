@@ -2,7 +2,7 @@
 
 public class LineDrawer : MonoBehaviour
 {
-    public RobotController controller;
+    public ArmController controller;
     public Transform pencil;
 
     public Vector3 startPoint = new Vector3(10f, 0f, 10f);
