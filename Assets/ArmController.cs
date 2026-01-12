@@ -3,7 +3,7 @@ using UnityEngine.UI;
 
 public class ArmController : MonoBehaviour
 {
-    public bool slider = false;
+    public bool slider = true;
 
     public Vector3 coordonnees = new Vector3(20f, 0f, 20f);
 

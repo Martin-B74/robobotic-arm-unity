@@ -17,7 +17,7 @@ public class CircleDrawer : MonoBehaviour
 
     [Header("Départ")]
     public Vector3 drawingStartPosition;
-    public float startTolerance = 0.1f;
+    public float startTolerance = 1f; // Large pour tester
 
     float t = 0f;
     bool playing = false;
@@ -37,8 +37,11 @@ public class CircleDrawer : MonoBehaviour
         lr.material = new Material(Shader.Find("Sprites/Default"));
 
         PrecomputeCircle();
-        Play();
+
+        playing = false;
+        drawing = false;
     }
+
 
     void PrecomputeCircle()
     {
@@ -80,11 +83,9 @@ public class CircleDrawer : MonoBehaviour
         }
 
         t += Time.deltaTime / duration;
-        if (t > 1f)
-            t = 1f;
+        t = Mathf.Clamp01(t);
 
-        int index = Mathf.FloorToInt(t * segments);
-        index = Mathf.Clamp(index, 0, segments - 1);
+        int index = Mathf.FloorToInt(t * (segments - 1));
 
         if (index != lastIndex)
         {
@@ -101,16 +102,13 @@ public class CircleDrawer : MonoBehaviour
         if (t >= 1f)
         {
             playing = false;
-
-            if (lr.positionCount > 1)
-            {
-                lr.positionCount++;
-                lr.SetPosition(lr.positionCount - 1, lr.GetPosition(0));
-            }
         }
+        Debug.Log("playing = " + playing);
+
+        Debug.Log("CircleDrawer Update tourne");
     }
 
-    public void Play()
+    public void ResetDrawing()
     {
         t = 0f;
         playing = true;

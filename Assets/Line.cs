@@ -76,4 +76,9 @@ public class LineDrawer : MonoBehaviour
         if (lr != null)
             lr.positionCount = 0;
     }
+    public void ResetDrawing()
+    {
+        Play();
+    }
+
 }
