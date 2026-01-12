@@ -102,3 +102,6 @@ InitTestScene*.unity*
 .vsconfig
 .vscode/
 *.slnx
+
+# Ignore TextMesh Pro (package Unity)
+Assets/TextMesh Pro/
