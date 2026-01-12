@@ -7,13 +7,25 @@ public class EndEffectorDisplay : MonoBehaviour
     public Text unityPositionText;
     public Text modelPositionText;
 
+    public GameObject pen;
+    private pencil scriptPencil;
+    private Vector3 offsetB;
+
     public ArmController controller;
 
     public float l1 = 10f, l2 = 10f, l3 = 10f;
 
+    void Start()
+    {
+        pen = GameObject.Find("Pencil");
+        scriptPencil = pen.GetComponent<pencil>();
+    }
+
     void Update()
     {
-        Vector3 unityPos = pencil.position;
+        offsetB = new Vector3(0f, scriptPencil.B, 0f);
+
+        Vector3 unityPos = pencil.position - offsetB;
         unityPositionText.text = $"Unity : {unityPos.ToString("F3")}";
 
         Vector3 modelPos = ComputeModelPosition();
