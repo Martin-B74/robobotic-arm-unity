@@ -7,16 +7,20 @@ public class EndEffectorDisplay : MonoBehaviour
     public Text unityPositionText;
     public Text modelPositionText;
 
+    public GameObject rot2;
+    private rotation_2 scriptRot2;
+
     public GameObject pen;
     private pencil scriptPencil;
     private Vector3 offsetB;
 
     public ArmController controller;
 
-    public float l1 = 10f, l2 = 10f, l3 = 10f;
-
     void Start()
     {
+        rot2 = GameObject.Find("Rotation2");
+        scriptRot2 = rot2.GetComponent<rotation_2>();
+
         pen = GameObject.Find("Pencil");
         scriptPencil = pen.GetComponent<pencil>();
     }
@@ -40,10 +44,9 @@ public class EndEffectorDisplay : MonoBehaviour
         float q4 = controller.Q4;
         float q5 = controller.Q5;
 
-        // Exemple simplifié — à remplacer par ton vrai modèle
-        float x = l2 * Mathf.Cos(q1 * Mathf.Deg2Rad);
-        float y = l1 + q3;
-        float z = l2 * Mathf.Sin(q1 * Mathf.Deg2Rad);
+        float x = q3 * Mathf.Sin(q2 * Mathf.Deg2Rad) * Mathf.Cos(q1 * Mathf.Deg2Rad);
+        float y = scriptRot2.A + q3 * Mathf.Cos(q2 * Mathf.Deg2Rad) - (q5 + scriptPencil.B) + 10f;
+        float z = q3 * Mathf.Sin(q2 * Mathf.Deg2Rad) * Mathf.Sin(q1 * Mathf.Deg2Rad);
 
         return new Vector3(x, y, z);
     }
